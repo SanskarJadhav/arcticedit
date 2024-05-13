@@ -82,7 +82,7 @@ def generate_arctic_response():
 
 # User-provided prompt
 if prompt := st.chat_input(disabled=not replicate_api):
-    st.session_state.messages.append({"role": "user", "content": prompt})
+    st.session_state.messages.append({"role": "user", "content": prompt + " Could you help me by breaking down this project into steps. Just highlight what each step will be and expected time for completion of each."})
     with st.chat_message("user", avatar="🐬"):
         st.write(prompt)
 
