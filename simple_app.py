@@ -4,7 +4,7 @@ import os
 from transformers import AutoTokenizer
 
 # Set assistant icon to Snowflake logo
-icons = {"assistant": "./Snowflake_Logomark_blue.svg", "user": "⛷️"}
+icons = {"assistant": "./Snowflake_Logomark_blue.svg", "user": "🐬"}
 
 # App title
 st.set_page_config(page_title="Snowflake Arctic")
@@ -27,7 +27,7 @@ with st.sidebar:
 
 # Store LLM-generated responses
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "Hi. I'm Arctic, a new, efficient, intelligent, and truly open language model created by Snowflake AI Research. Ask me anything."}]
+    st.session_state.messages = [{"role": "assistant", "content": "Hi! I'm Arctic, and yeah I'm pretty cool ;) I heard you are working on some special project. I'm very excited to hear more about it!"}]
 
 # Display or clear chat messages
 for message in st.session_state.messages:
@@ -64,7 +64,7 @@ def generate_arctic_response():
             prompt.append("<|im_start|>assistant\n" + dict_message["content"] + "<|im_end|>")
     
     prompt.append("<|im_start|>assistant")
-    prompt.append("")
+    prompt.append("Cool! ")
     prompt_str = "\n".join(prompt)
     
     if get_num_tokens(prompt_str) >= 3072:
@@ -82,7 +82,7 @@ def generate_arctic_response():
 
 # User-provided prompt
 if prompt := st.chat_input(disabled=not replicate_api):
-    st.session_state.messages.append({"role": "user", "content": prompt})
+    st.session_state.messages.append({"role": "user", "content": prompt + "Could you help me by breaking down this project into 5 steps? Talk about each step in detail, nothing else. You may begin."})
     with st.chat_message("user", avatar="⛷️"):
         st.write(prompt)
 
