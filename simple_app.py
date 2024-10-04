@@ -4,7 +4,7 @@ import os
 from transformers import AutoTokenizer
 
 # Set assistant icon to Snowflake logo
-icons = {"assistant": "./Snowflake_Logomark_blue.svg", "user": "🐬"}
+icons = {"assistant": "🤖", "user": "🧑"}
 
 # App title
 st.set_page_config(page_title="Snowflake Arctic")
@@ -27,7 +27,7 @@ with st.sidebar:
 
 # Store LLM-generated responses
 if "messages" not in st.session_state.keys():
-    st.session_state.messages = [{"role": "assistant", "content": "Hi! I'm Arctic, and yeah I'm pretty cool ;) I heard you are working on some special project. I'm very excited to hear more about it!"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Hi! I am a Go2 quadruped robot designed by Unitree. I currently reside in Bharat Forge, in Mundhwa, India. Specifically I stay inside the incubation center also called as the AI and Tech Center. I am equipped with cameras, lidar, and have full functionality including face recognition, visualizing your surroundings, and omnidirectional movement. I am ready to assist you and answer any doubts."}]
 
 # Display or clear chat messages
 for message in st.session_state.messages:
@@ -35,7 +35,7 @@ for message in st.session_state.messages:
         st.write(message["content"])
 
 def clear_chat_history():
-    st.session_state.messages = [{"role": "assistant", "content": "Hi! I'm Arctic, and yeah I'm pretty cool ;) I heard you are working on some special project. I'm very excited to hear more about it!"}]
+    st.session_state.messages = [{"role": "assistant", "content": "Hi! I am a Go2 quadruped robot designed by Unitree. I currently reside in Bharat Forge, in Mundhwa, India. Specifically I stay inside the incubation center also called as the AI and Tech Center. I am equipped with cameras, lidar, and have full functionality including face recognition, visualizing your surroundings, and omnidirectional movement. I am ready to assist you and answer any doubts."}]
 
 st.sidebar.button('Clear chat history', on_click=clear_chat_history)
 st.sidebar.caption('Built by [Snowflake](https://snowflake.com/) to demonstrate [Snowflake Arctic](https://www.snowflake.com/blog/arctic-open-and-efficient-foundation-language-models-snowflake). App hosted on [Streamlit Community Cloud](https://streamlit.io/cloud). Model hosted by [Replicate](https://replicate.com/snowflake/snowflake-arctic-instruct).')
